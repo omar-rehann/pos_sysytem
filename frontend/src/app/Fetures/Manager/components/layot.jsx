@@ -66,29 +66,7 @@ const logout=()=>{
         <nav className="p-3 space-y-1">
 
           {/* ===== Dashboard ===== */}
-          <Link href="/Fetures/Manager/Homepage"   className="!no-underline hover:!no-underline">
-          <button
-            title="homepage"
-            onClick={() => setActiveItem("homepage")}
-            className={`w-full cursor-pointer flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-              collapsed ? "md:justify-center" : ""
-            } ${
-              activeItem === "homepage"
-                ? "bg-blue-500 text-white"
-                : "text-gray-700 hover:bg-gray-100"
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <i className="fa-solid fa-home w-5 text-center" />
-
-              <span
-                className={`whitespace-nowrap ${hideWhenCollapsed}`}
-              >
-                Home page
-              </span>
-            </div>
-          </button>
-          </Link>
+        
           <Link href="/Fetures/Manager/Addcategorey" className="!no-underline hover:!no-underline">
           <button
             title="addcategorey"

@@ -244,7 +244,7 @@ const logout=()=>{
             </div>
           </button>
           </Link>
-       <Link href="http://localhost:3000/" className="!no-underline hover:!no-underline">
+       <Link href="https://pos-sysytem-z4ka.vercel.app/" className="!no-underline hover:!no-underline">
   <button
   onClick={logout}
     

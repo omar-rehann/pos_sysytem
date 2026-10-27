@@ -76,7 +76,7 @@ function LoginPage() {
           text: "Welcome Manager!",
           confirmButtonText: "Continue",
         });
-  router.push("/Fetures/Manager/Homepage");
+  router.push("/Fetures/Manager/Addcategorey");
 
 } else {
   Swal.fire({ icon: "error", title: "Access denied", text: "You are not authorized for this role." });

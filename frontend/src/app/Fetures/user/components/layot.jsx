@@ -222,7 +222,7 @@ const logout=()=>{
             </div>
           </button>
           </Link>
-       <Link href="https://pos-sysytem-z4ka.vercel.app/" className="!no-underline hover:!no-underline">
+       <Link href="/login" className="!no-underline hover:!no-underline">
   <button
   onClick={logout}
     

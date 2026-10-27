@@ -357,9 +357,7 @@ npm run dev          # http://localhost:3000
 - [ ] 💰 Manager dashboard with profit
 - [ ] 🛒 User product and cart pages
 - [ ] 💳 Payment simulation and invoice saving
-- [ ] 🔎 Order filtering by payment status
-- [ ] 📄 Pagination for large tables
-- [ ] 🌙 Dark mode (optional)
+
 
 ---
 

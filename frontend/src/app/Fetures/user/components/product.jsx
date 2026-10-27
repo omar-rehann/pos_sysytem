@@ -13,7 +13,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-const API = "http://localhost:4000/posystem/project";
 
 function Products() {
   const [orders, setOrders] = useState([]);
@@ -26,7 +25,7 @@ function Products() {
         setOrders([]);
         return;
       }
-      const response = await fetch(`${API}/showorder?userId=${user._id}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showorder?userId=${user._id}`);
       const result = await response.json();
       setOrders(result.success && Array.isArray(result.orders) ? result.orders : []);
     } catch (error) {
@@ -49,7 +48,7 @@ function Products() {
     if (!confirm.isConfirmed) return;
 
     try {
-      const response = await fetch(`${API}/deleteorder/${id}`, { method: "DELETE" });
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/deleteorder/${id}`, { method: "DELETE" });
       const result = await response.json();
 
       if (result.success) {

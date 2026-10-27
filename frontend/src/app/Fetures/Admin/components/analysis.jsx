@@ -25,7 +25,7 @@ function Analysis() {
   const getuser = async () => {
     try {
       let response = await fetch(
-        "http://localhost:4000/possysytem/userAuth/showuser",
+       `${process.env.NEXT_PUBLIC_API_URL}/possysytem/userAuth/showuser`,
       );
       let result = await response.json();
       console.log("raw categories:", result);
@@ -41,7 +41,7 @@ function Analysis() {
   const getstore = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/posystem/project/showstore`,
+        `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showstore`,
       );
       const result = await response.json();
       setstore(result.success ? result.data : []);
@@ -54,7 +54,7 @@ function Analysis() {
   const getmanger = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/posystem/project/showmanger`,
+      `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showmanger`,
       );
       const result = await response.json();
       setmanger(result.success ? result.data : []);
@@ -66,7 +66,7 @@ function Analysis() {
   const getcategorey = async () => {
     try {
       const response = await fetch(
-        "http://localhost:4000/posystem/project/showcategorey",
+        `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showcategorey`,
       );
       const result = await response.json();
       if (result.success) {
@@ -82,7 +82,7 @@ function Analysis() {
   const getproduct = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/posystem/project/showproduct`,
+        `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showproduct`,
       );
       const result = await response.json();
       if (result.success && Array.isArray(result.products)) {
@@ -99,7 +99,7 @@ function Analysis() {
   const getinvoices = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/posystem/project/showallinvoices`,
+        `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showallinvoices`,
       );
       const result = await response.json();
       setorder(

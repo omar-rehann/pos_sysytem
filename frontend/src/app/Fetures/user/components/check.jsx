@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Swal from "sweetalert2";
 
-const API = "http://localhost:4000/posystem/project";
 const TAX_RATE = 0.14; // لازم يطابق الـ backend (0 لو مفيش ضريبة)
 
 const inputClass =
@@ -29,7 +28,7 @@ function Check() {
 
   const getorders = async (userId) => {
     try {
-      const res = await fetch(`${API}/showorder?userId=${userId}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showorder?userId=${userId}`);
       const result = await res.json();
       setOrders(result.success && Array.isArray(result.orders) ? result.orders : []);
     } catch (error) {
@@ -77,7 +76,7 @@ function Check() {
     setSubmitting(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`${API}/addpayment`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/addpayment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

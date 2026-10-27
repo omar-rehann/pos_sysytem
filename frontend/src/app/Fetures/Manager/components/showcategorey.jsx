@@ -39,7 +39,7 @@ function ShowCategorey() {
   const getstore = async () => {
     try {
       const response = await fetch(
-        "http://localhost:4000/posystem/project/showstore",
+        `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showstore`,
       );
       const result = await response.json();
       if (result.success) {
@@ -57,7 +57,7 @@ function ShowCategorey() {
   const getcategorey = async () => {
     try {
       const response = await fetch(
-        "http://localhost:4000/posystem/project/showcategorey",
+        `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showcategorey`,
       );
       const result = await response.json();
       if (result.success) {
@@ -79,7 +79,7 @@ function ShowCategorey() {
   const deletecategorey = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/posystem/project/deletecategorey/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/deletecategorey/${id}`,
         { method: "DELETE" },
       );
       let data = await response.json();
@@ -119,7 +119,7 @@ function ShowCategorey() {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/posystem/project/editcategorey/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/editcategorey/${id}`,
         { method: "PUT", body: formData },
       );
       const result = await response.json();

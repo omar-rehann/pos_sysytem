@@ -29,7 +29,7 @@ function LoginPage() {
     setloading(true);
     try {
       const response = await fetch(
-        "http://localhost:4000/possysytem/userAuth/login",
+        `${process.env.NEXT_PUBLIC_API_URL}/possysytem/userAuth/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

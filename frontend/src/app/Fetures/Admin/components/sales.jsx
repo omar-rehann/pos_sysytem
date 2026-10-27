@@ -1,7 +1,6 @@
 "use client"
 import { useState, useEffect } from "react";
 
-const API = "http://localhost:4000/posystem/project";
 
 function Allinvooceis() {
   const [invoices, setInvoices] = useState([]);
@@ -9,7 +8,7 @@ function Allinvooceis() {
 
   const getinvoices = async () => {
     try {
-      const response = await fetch(`${API}/showallinvoices`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showallinvoices`);
       const result = await response.json();
       setInvoices(result.success && Array.isArray(result.invoices) ? result.invoices : []);
     } catch (error) {

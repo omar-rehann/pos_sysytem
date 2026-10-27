@@ -12,7 +12,7 @@ function Addproduct(){
     const getcategorey = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/posystem/project/showcategorey"
+          `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showcategorey`
         );
         const result = await response.json();
         if (result.success) {
@@ -61,7 +61,7 @@ function Addproduct(){
 
   
       try {
-        const response = await fetch("http://localhost:4000/posystem/project/addproduct", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/addproduct`, {
           method: "POST",
           body: formData,
         });

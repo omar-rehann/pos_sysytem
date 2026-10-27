@@ -22,7 +22,6 @@ import { Label } from "@/components/ui/label";
 import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
 
-const API = "http://localhost:4000/posystem/project";
 
 function ShowManger() {
   const [allmanger, setmanger] = useState([]);
@@ -41,7 +40,7 @@ function ShowManger() {
   // ───── show stores ─────
   const getstore = async () => {
     try {
-      const response = await fetch(`${API}/showstore`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showstore`);
       const result = await response.json();
       setstoree(result.success ? result.data : []);
     } catch (error) {
@@ -52,7 +51,7 @@ function ShowManger() {
   // ───── show managers ─────
   const getmanger = async () => {
     try {
-      const response = await fetch(`${API}/showmanger`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showmanger`);
       const result = await response.json();
       setmanger(result.success ? result.data : []);
     } catch (error) {
@@ -64,7 +63,7 @@ function ShowManger() {
   const deletemanger = async (id) => {
     if (!id) return;
     try {
-      const response = await fetch(`${API}/deletemanger/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/deletemanger/${id}`, {
         method: "DELETE",
       });
       const data = await response.json();
@@ -136,7 +135,7 @@ function ShowManger() {
     if (editnumber) formData.append("number", editnumber);
 
     try {
-      const response = await fetch(`${API}/editmanger/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/editmanger/${id}`, {
         method: "PUT",
         body: formData,
       });

@@ -17,7 +17,7 @@ const [allproduct,setproduct]=useState([]);
     const quantity = quantities[pro._id] ?? 1;
 
     try {
-      const response = await fetch(`http://localhost:4000/posystem/project/addorder`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/addorder`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -58,7 +58,7 @@ const [allproduct,setproduct]=useState([]);
     const getproduct = async () => {
       try {
         const response = await fetch(
-           "http://localhost:4000/posystem/project/showproduct"
+           `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showproduct`
         );
         const result = await response.json();
         if (result.success) {

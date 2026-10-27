@@ -12,7 +12,7 @@ const addstore = async (e) => {
   const formData = new FormData();
     formData.append("image", image);  
     formData.append("name", name);         
-   const response = await fetch("http://localhost:4000/posystem/project/addstore", {
+   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/addstore`, {
     method: "POST",
     body: formData,
   });

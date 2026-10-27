@@ -36,7 +36,7 @@ const [editdescription, setEditdescription] = useState(null);
     const getservices = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/posystem/project/showservices"
+          `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showservices`
         );
     
         const result = await response.json();
@@ -57,7 +57,7 @@ const [editdescription, setEditdescription] = useState(null);
     const deleteservices = async (id) => {
         try {
           const response = await fetch(
-            `http://localhost:4000/posystem/project/deleteservices/${id}`,
+            `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/deleteservices/${id}`,
             { method: "DELETE" }
           );
           let data = await response.json();
@@ -100,7 +100,7 @@ if (editdescription) setEditdescription(data.description);
     
       try {
         const response = await fetch(
-          `http://localhost:4000/posystem/project/editservices/${id}`,
+          `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/editservices/${id}`,
           { method: "PUT",  body: JSON.stringify(data)
  }
         );

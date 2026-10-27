@@ -17,13 +17,13 @@ function Addmanger(){
     const getstore = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/posystem/project/showstore"
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showstore`)
         );
     
         const result = await response.json();
     
         if (result.success) {
-          setstoree(result.data);
+         setstoree(result.data);
           
           await getstore()
         } else {
@@ -48,7 +48,7 @@ formData.append("password", password);
 formData.append("number", number);
 formData.append("adress", adress);
 formData.append("store", store);
-       const response = await fetch("http://localhost:4000/posystem/project/addmanger", {
+       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/addmanger`, {
         method: "POST",
         body: formData,
       });

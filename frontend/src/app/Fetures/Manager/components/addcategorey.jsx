@@ -42,7 +42,7 @@ const storeName = allStores.find(s => String(s._id) === String(store))?.name;
     formData.append("store", storeName);
 
     try {
-      const response = await fetch("http://localhost:4000/posystem/project/addcategorey", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/addcategorey`, {
         method: "POST",
         body: formData,
       });
@@ -84,7 +84,7 @@ const storeName = allStores.find(s => String(s._id) === String(store))?.name;
   // Get Stores
   const getStores = async () => {
     try {
-      const response = await fetch("http://localhost:4000/posystem/project/showstore");
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showstore`);
       const result = await response.json();
 
       if (result.success) {

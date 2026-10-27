@@ -36,7 +36,7 @@ const [editImage, setEditImage] = useState(null);
     const getstore = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/posystem/project/showstore"
+          `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showstore`
         );
     
         const result = await response.json();
@@ -60,7 +60,7 @@ const [editImage, setEditImage] = useState(null);
     const deletestore = async (id) => {
         try {
           const response = await fetch(
-            `http://localhost:4000/posystem/project/deletestore/${id}`,
+            `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/deletestore/${id}`,
             { method: "DELETE" }
           );
           let data = await response.json();
@@ -100,7 +100,7 @@ const [editImage, setEditImage] = useState(null);
     
       try {
         const response = await fetch(
-          `http://localhost:4000/posystem/project/editstore/${id}`,
+          `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/editstore/${id}`,
           { method: "PUT", body: formData }
         );
         const result = await response.json();

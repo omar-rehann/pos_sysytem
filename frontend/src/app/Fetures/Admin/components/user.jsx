@@ -14,7 +14,7 @@ function User(){
   const [users,setalluser]=useState([]);
   const getuser=async()=>{
     try{
-       let response=await fetch("http://localhost:4000/possysytem/userAuth/showuser");
+       let response=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/possysytem/userAuth/showuser`);
     let result=await response.json();
     console.log("raw categories:", result);
     if(result.success){
@@ -33,7 +33,7 @@ useEffect(()=>{
 const deleteuser = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/possysytem/userAuth/deleteuser/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/possysytem/userAuth/deleteuser/${id}`,
         { method: "DELETE" }
       );
       let data = await response.json();

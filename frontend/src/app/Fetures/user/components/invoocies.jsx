@@ -1,7 +1,6 @@
 "use client"
 import { useState, useEffect } from "react";
 
-const API = "http://localhost:4000/posystem/project";
 
 const getUser = () => {
   try {
@@ -23,7 +22,7 @@ function Invoices() {
         setInvoices([]);
         return;
       }
-      const response = await fetch(`${API}/showinvoices?userId=${user._id}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showinvoices?userId=${user._id}`);
       const result = await response.json();
       setInvoices(result.success && Array.isArray(result.invoices) ? result.invoices : []);
     } catch (error) {

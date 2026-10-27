@@ -10,7 +10,7 @@ function Showservices(){
     const getservices = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/posystem/project/showservices"
+          `${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showservices`
         );
     
         const result = await response.json();

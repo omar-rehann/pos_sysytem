@@ -36,7 +36,7 @@ console.log("all product",allproduct)
   // show products
 const getproduct = async () => {
   try {
-    const response = await fetch(`http://localhost:4000/posystem/project/showproduct`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showproduct`);
     const result = await response.json();
     if (result.success && Array.isArray(result.products)) {
       setallproduct(result.products);
@@ -52,7 +52,7 @@ const getproduct = async () => {
 
 const getcategorey = async () => {
   try {
-    const response = await fetch(`http://localhost:4000/posystem/project/showcategorey`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showcategorey`);
     const result = await response.json();
     console.log("categories response:", result);
     if (result.success && Array.isArray(result.data)) {
@@ -74,7 +74,7 @@ const getcategorey = async () => {
   // delete product
   const deleteproduct = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/posystem/project/deleteproduct/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/deleteproduct/${id}`, {
         method: "DELETE",
       });
       const data = await response.json();
@@ -122,7 +122,7 @@ const getcategorey = async () => {
     if (editcategorey) formData.append("category", editcategorey);
 
     try {
-      const response = await fetch(`http://localhost:4000/posystem/project/editproduct/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/editproduct/${id}`, {
         method: "PUT",
         body: formData,
       });
@@ -155,7 +155,6 @@ const getcategorey = async () => {
     }
   };
 
-  // اسم الكاتيجوري (populate أو id)
   const getCategoryName = (pro) =>
     pro.category?.name ||
     allcategorey.find((c) => c._id === pro.category)?.name ||

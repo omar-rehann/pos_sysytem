@@ -9,7 +9,7 @@ function Popular() {
 
   const getproduct = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/posystem/project/showpopular`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/showpopular`);
       const result = await response.json();
       setallproduct(result.success && Array.isArray(result.products) ? result.products : []);
     } catch (error) {
@@ -27,7 +27,7 @@ function Popular() {
     const quantity = quantities[pro._id] ?? 1;
 
     try {
-      const response = await fetch(`${API}/addorder`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/addorder`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

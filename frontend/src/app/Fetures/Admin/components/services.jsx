@@ -11,7 +11,7 @@ function Services(){
   }
   const addservices = async (e) => {
     e.preventDefault();        
-     const response = await fetch("http://localhost:4000/posystem/project/addservices", {
+     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posystem/project/addservices`, {
       method: "POST",
        headers: {
     "Content-Type": "application/json",

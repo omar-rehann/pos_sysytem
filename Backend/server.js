@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     res.send("Hello to POS system");
 });
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 4000
 app.use("/possysytem/userAuth", Approuter);
 app.use("/posystem/project", routingpos);
 app.listen(PORT, () => {
